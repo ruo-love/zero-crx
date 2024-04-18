@@ -1,0 +1,1 @@
+(()=>{"use strict";var e="AI_OUTPUT";window.onload=function(){var n=document.getElementById("content-wrap");chrome.runtime.onMessage.addListener((function(o){o.type===e&&(console.log("AI_OUTPUT",e),n.innerText+=o.payload)}))}})();
