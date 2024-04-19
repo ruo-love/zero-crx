@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.6",
     "highlight.js": "^11.9.0",
     "markdown-it": "^14.1.0",
     "vue": "^3.4.21"

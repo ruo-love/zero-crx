@@ -61,6 +61,7 @@ window.onload = function () {
         break;
       case STOP:
         ctrl.abort();
+        chrome.runtime.sendMessage(new Action(AI_CLOSE, "chat close"));
         break;
     }
   });

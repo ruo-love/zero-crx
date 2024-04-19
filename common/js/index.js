@@ -19,7 +19,8 @@ export function aiSearch(prompt, options) {
       },
       body: JSON.stringify({
         stream: true,
-        model: "glm-4",
+        model: "glm-3-turbo",
+        max_tokens: 100,
         messages: [{ role: "user", content: prompt }],
       }),
       signal: ctrl.signal,

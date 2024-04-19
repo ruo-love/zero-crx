@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import "./style.css";
 import "highlight.js/styles/atom-one-dark.css";
-import App from "./App.vue";
+import AppAi from "./pages/AppAi.vue";
 
-createApp(App).mount("#app");
+createApp(AppAi).mount("#app-ai");

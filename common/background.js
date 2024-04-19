@@ -8,6 +8,22 @@ chrome.sidePanel
   .catch((error) => console.error(error));
 
 /**
+ * @description 多个侧边栏
+ */
+const welcomePage = "sidepanels/welcome-sp.html";
+const mainPage = "sidepanels/main-sp.html";
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.sidePanel.setOptions({ path: welcomePage });
+});
+
+chrome.tabs.onActivated.addListener(async ({ tabId }) => {
+  const { path } = await chrome.sidePanel.getOptions({ tabId });
+  if (path === welcomePage) {
+    chrome.sidePanel.setOptions({ path: mainPage });
+  }
+});
+/**
  * @description 监听快捷键
  */
 chrome.commands.onCommand.addListener((command) => {

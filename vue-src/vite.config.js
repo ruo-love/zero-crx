@@ -7,5 +7,13 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     outDir: "../zero/side_panel",
+    rollupOptions: {
+      input: {
+        // 指定多个入口文件
+        "main-ai": "src/main-ai.js",
+        "main-mine": "src/main-mine.js",
+        // 可以根据需要继续添加其他入口文件
+      },
+    },
   },
 });
