@@ -32,7 +32,7 @@
         }
     },
     "side_panel": {
-        "default_path": "./html/side_panel.html"
+        "default_path": "./side_panel/index.html"
     },
     "action": {
         "default_icon": {

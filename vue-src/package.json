@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.9.0",
+    "markdown-it": "^14.1.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {

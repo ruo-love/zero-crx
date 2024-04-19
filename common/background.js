@@ -1,5 +1,5 @@
-import { Action } from "./common";
-import { AI_PROMPT_SEARCH, AI_SEARCH, STOP, ZERO_LOG } from "./common/constant";
+import { Action } from "./js";
+import { AI_PROMPT_SEARCH, AI_SEARCH, STOP, ZERO_LOG } from "./js/constant";
 /**
  * @description 插件标签打开侧边栏
  */

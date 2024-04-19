@@ -1,17 +1,17 @@
-import { Action, aiSearch } from "../common";
+import { Action, aiSearch } from "../js";
 import {
+  AI_CLOSE,
   AI_OUTPUT,
   AI_SEARCH,
   START_SEARCH,
   STOP,
   ZERO_LOG,
-} from "../common/constant";
+} from "../js/constant";
 
 window.onload = function () {
   // 监听来自插件的消息
   let ctrl = null;
   chrome.runtime.onMessage.addListener(function (action) {
-    console.log(12, action.type, action.payload);
     switch (action.type) {
       case AI_SEARCH:
         const selectedText = action.payload || window.getSelection().toString();
@@ -37,16 +37,16 @@ window.onload = function () {
             );
           },
           onmessage: (msg) => {
-            chrome.runtime.sendMessage(new Action(ZERO_LOG, msg.data));
             chrome.runtime.sendMessage(
               new Action(AI_OUTPUT, {
                 prompt: selectedText,
-                msg: msg.data,
+                data: msg.data,
               })
             );
           },
           onclose: () => {
             chrome.runtime.sendMessage(new Action(ZERO_LOG, "chat close"));
+            chrome.runtime.sendMessage(new Action(AI_CLOSE, "chat close"));
           },
           onerror: (err) => {
             chrome.runtime.sendMessage(

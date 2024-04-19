@@ -4,10 +4,8 @@ module.exports = {
   mode: "production",
   // plugins: [new NodePolyfillPlugin()],
   entry: {
-    background: "./src/background.js",
-    content_scripts: "./src/content_scripts/index.js",
-    popup: "./src/html/popup/popup.js",
-    side_panel: "./src/html/side_panel/side_panel.js",
+    background: "./common/background.js",
+    content_scripts: "./common/content_scripts/index.js",
   },
   output: {
     filename: "[name].js",
@@ -26,6 +24,10 @@ module.exports = {
             presets: ["@babel/preset-env"], // 使用 @babel/preset-env 进行转译
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
