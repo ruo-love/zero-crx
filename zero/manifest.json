@@ -6,7 +6,10 @@
     "permissions": [
         "contextMenus",
         "webRequest",
-        "sidePanel"
+        "sidePanel",
+        "commands",
+        "activeTab",
+        "scripting"
     ],
     "content_scripts": [
         {
@@ -21,10 +24,15 @@
     "background": {
         "service_worker": "js/background.js"
     },
+    "commands": {
+        "open_side_panel": {
+            "suggested_key": "Alt+Q",
+            "description": "open side_panel",
+            "global": true
+        }
+    },
     "side_panel": {
-        "default_path": "./html/side_panel.html",
-        "width": 200,
-        "height": 200
+        "default_path": "./html/side_panel.html"
     },
     "action": {
         "default_icon": {
