@@ -22,12 +22,20 @@
       </div>
     </div>
     <Card title="Response"><div v-html="md.render(content)"></div></Card>
+    <FloatButton @click="handleClick" />
   </div>
 </template>
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { mdRender } from "../helper";
-import { InputSearch, Space, Progress, Button, Card } from "ant-design-vue";
+import {
+  InputSearch,
+  Space,
+  Progress,
+  Button,
+  Card,
+  FloatButton,
+} from "ant-design-vue";
 import { LoadingOutlined } from "@ant-design/icons-vue";
 import {
   AI_CLOSE,
@@ -71,6 +79,9 @@ onMounted(() => {
 onBeforeUnmount(() => {
   stopAi();
 });
+function handleClick() {
+  // chrome.runtime.sendMessage(new Action("TEST", null));
+}
 function stopAi() {
   chrome.runtime.sendMessage(new Action(STOP, null));
 }

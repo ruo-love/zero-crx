@@ -32,7 +32,9 @@
         }
     },
     "side_panel": {
-        "default_path": "./side_panel/index.html"
+        "default_path": "./side_panel/index-ai.html",
+        "default_title": "zero Side Panel AI",
+        "open_at_install": true
     },
     "action": {
         "default_icon": {

@@ -1,0 +1,1 @@
+import{J as r,K as s,O as a}from"./style.js";const p=(e,n)=>{const t=e.__vccOpts||e;for(const[c,o]of n)t[c]=o;return t},_={};function i(e,n){return r(),s("div",null,"mine")}const m=p(_,[["render",i]]);a(m).mount("#app-mine");
