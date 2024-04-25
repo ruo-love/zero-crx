@@ -12,12 +12,11 @@ jobs:
       - name: 迁出代码
         uses: actions/checkout@master
 
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          name: id_rsa
-          if_key_exists: fail
-
-      - name: Upload dist directory to server
-        run: scp -r zero Administrator@47.100.41.146:C:\dd\
+      - name: Deploy to Windows
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "zero"
+          REMOTE_HOST: "47.100.41.146"
+          REMOTE_USER: "Administrator"
+          TARGET: "C:\\dd"
