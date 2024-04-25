@@ -12,21 +12,10 @@ jobs:
       - name: 迁出代码
         uses: actions/checkout@master
 
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: 发布到阿里 云
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          #私钥
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          #SCp参数
-          ARGS: "-rltgoDzvO --delete"
-          #源目录
-          SOURCE: "zero/"
-          #服务器Ip:换成你的服务器iP
-          REMOTE_HOST: "47.100.41.146"
-          #用户
-          REMOTE_USER: "Administrator"
-          #目标地址
-          TARGET: "C:\\dd\\"
-          # 指定远程 shell 为 bash，并指定 -e 选项
-          RSYNC_OPTIONS: "-e 'ssh -p 22'"
+      - name: Upload dist directory to server
+        run: scp -r zero Administrator@47.100.41.146:C:\dd\
