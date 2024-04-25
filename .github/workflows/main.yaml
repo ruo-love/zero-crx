@@ -17,7 +17,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           #私钥
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           #SCp参数
           ARGS: "-rltgoDzvO --delete"
           #源目录
@@ -27,4 +27,4 @@ jobs:
           #用户
           REMOTE_USER: "Administrator"
           #目标地址
-          TARGET: "C:\\"
+          TARGET: "C:\\dd\"
