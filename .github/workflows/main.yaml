@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
 
 
-      - name: 发布到阿里云
+      - name: 发布到阿里 云
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           #私钥
