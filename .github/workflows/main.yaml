@@ -15,7 +15,9 @@ jobs:
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
-        private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        name: id_rsa
+        if_key_exists: fail
 
     - name: Upload dist directory to server
       run: scp -r dist Administrator@47.100.41.146:C:\
