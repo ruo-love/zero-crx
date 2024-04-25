@@ -27,4 +27,4 @@ jobs:
           #用户
           REMOTE_USER: "Administrator"
           #目标地址
-          TARGET: "C:\"
+          TARGET: "C:\\"
