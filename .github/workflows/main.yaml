@@ -28,3 +28,5 @@ jobs:
           REMOTE_USER: "Administrator"
           #目标地址
           TARGET: "C:\\dd\\"
+          # 指定远程 shell 为 bash，并指定 -e 选项
+          RSYNC_OPTIONS: "-e 'ssh -p 22'"
