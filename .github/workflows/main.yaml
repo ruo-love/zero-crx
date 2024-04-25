@@ -17,7 +17,7 @@ jobs:
           ARGS: -rltgoDzvO --delete
           SOURCE: zero/
           REMOTE_HOST: 47.100.41.146
-          REMOTE_USER: administrator
+          REMOTE_USER: Administrator
           TARGET: C:\dd
         
   
