@@ -4,19 +4,20 @@ on:
   push:
     branches:
       - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: 迁出代 码
         uses: actions/checkout@master
-
-      - name: Deploy to W indows
-        uses: easingthemes/ssh-deploy@v2.1.5
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2.1.2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "zero"
-          REMOTE_HOST: "47.100.41.146"
-          REMOTE_USER: "administrator"
-          TARGET: "C:\\dd"
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: -rltgoDzvO --delete
+          SOURCE: zero/
+          REMOTE_HOST: 47.100.41.146
+          REMOTE_USER: administrator
+          TARGET: C:\\dd
+        
+  
