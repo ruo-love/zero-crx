@@ -19,3 +19,4 @@ jobs:
 
     - name: Upload dist directory to server
       run: scp -r dist Administrator@47.100.41.146:C:\
+
