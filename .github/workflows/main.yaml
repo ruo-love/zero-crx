@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 迁出代码
+      - name: 迁出代 码
         uses: actions/checkout@master
 
       - name: Deploy to W indows
