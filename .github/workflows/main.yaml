@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 迁出代 码
+      - name: 迁出代码
         uses: actions/checkout@master
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.2
