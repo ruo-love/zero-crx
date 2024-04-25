@@ -22,7 +22,10 @@
       </div>
     </div>
     <Card title="Response"><div v-html="md.render(content)"></div></Card>
-    <FloatButton @click="handleClick" />
+    <FloatButtonGroup shape="circle" :style="{ right: '94px' }">
+      <FloatButton> </FloatButton>
+      <FloatButton> </FloatButton>
+    </FloatButtonGroup>
   </div>
 </template>
 <script setup>
@@ -35,7 +38,9 @@ import {
   Button,
   Card,
   FloatButton,
+  FloatButtonGroup,
 } from "ant-design-vue";
+import { QuestionCircleOutlined } from "@ant-design/icons-vue";
 import { LoadingOutlined } from "@ant-design/icons-vue";
 import {
   AI_CLOSE,

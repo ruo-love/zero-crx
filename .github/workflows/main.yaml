@@ -1,0 +1,21 @@
+name: Deploy to Aliyun Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Upload dist directory to server
+      run: scp -r dist Administrator@47.100.41.146:C:\
