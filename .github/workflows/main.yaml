@@ -18,6 +18,6 @@ jobs:
           SOURCE: zero/
           REMOTE_HOST: 47.100.41.146
           REMOTE_USER: administrator
-          TARGET: C:\\dd
+          TARGET: C:\dd
         
   
