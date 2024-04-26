@@ -15,6 +15,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
+          cat ~/.ssh/deploy_key  # 输出私钥内容到日志中，用于调试
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
