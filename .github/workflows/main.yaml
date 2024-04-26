@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 20
       - name: Install dependencies and build
-        run:
+        run: |
           cd vue-src
           npm install
           npm run build
