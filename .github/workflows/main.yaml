@@ -14,16 +14,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 20
-      # - name: cd vue-src
-      #   run: cd vue-src
-      - name: install dependencies
-        run: npm install
-      - name: build
-        run: npm run build
+      - name: Install dependencies and build
+        run:
+          cd vue-src
+          npm install
+          npm run build
 
   deploy-aliyun:
     runs-on: ubuntu-latest
-    needs: build  # 等待 build 任务完成后再执行部署任务
+    needs: build
     steps:
       - name: deploy
         uses: easingthemes/ssh-deploy@v2.1.1
