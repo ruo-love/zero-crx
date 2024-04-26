@@ -5,7 +5,7 @@ export default defineConfig({
   base: "./",
   plugins: [vue()],
   build: {
-    outDir: "../zero/side_panel",
+    // outDir: "../zero/side_panel",
     rollupOptions: {
       input: {
         // 指定多个入口文件

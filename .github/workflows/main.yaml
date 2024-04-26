@@ -8,21 +8,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 迁出代 码
+      - name: get code
         uses: actions/checkout@master
-      - name: Install rsync
-        run: sudo apt-get update && sudo apt-get install -y rsync
+      - name: install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20
+      - name: cd vue_src
+        run: cd vue_src
+      - name: install dependencies
+        run: npm install
+      - name: build
+        run: npm run build
 
-       # 部署到服务器
+  deploy-aliyun:
+    runs-on: ubuntu-latest
+    steps:
       - name: deploy
         uses: easingthemes/ssh-deploy@v2.1.1
         env:
           # 本地.ssh文件下的私钥id_rsa，存在secrets的PRIVATE_KEY中
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           # 复制操作的参数。"-avzr --delete"意味部署时清空服务器目标目录下的文件
-          ARGS: "-avzr --delete" 
+          ARGS: "-avzr --delete"
           # 源目录，相对于$GITHUB_WORKSPACE根目录的路径
-          SOURCE: "./zero"
+          SOURCE: "./vue-src/dist/"
           # 服务器域名/IP
           REMOTE_HOST: "47.103.194.209"
           # 服务器默认用户名为root
