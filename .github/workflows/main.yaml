@@ -17,8 +17,8 @@ jobs:
       - name: Install dependencies and build
         run: |
           cd vue-src
-          npm install
-          npm run build
+          yarn install
+          yarn run build
 
   deploy-aliyun:
     runs-on: ubuntu-latest
