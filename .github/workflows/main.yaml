@@ -10,13 +10,16 @@ jobs:
     steps:
       - name: 迁出代 码
         uses: actions/checkout@master
-      - name: Debug Private Key
+      - name: Set up SSH key
         run: |
-          cat /path/to/deploy.pem ${{ secrets.SSH_PRIVATE_KEY }}
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ~/.ssh/deploy_key
           ARGS: "-avzr --delete"
           SOURCE: "./zero"
           REMOTE_HOST: "47.103.194.209"
