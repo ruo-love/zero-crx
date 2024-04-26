@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: 迁出代 码
         uses: actions/checkout@master
+      - name: Install rsync
+        run: sudo apt-get update && sudo apt-get install -y rsync
+
        # 部署到服务器
       - name: deploy
         uses: easingthemes/ssh-deploy@v2.1.1
