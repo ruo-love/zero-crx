@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: 迁出代码
         uses: actions/checkout@master
+      - name: Debug Private Key
+        run: |
+          cat /path/to/deploy.pem ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         env:
@@ -19,5 +22,3 @@ jobs:
           REMOTE_HOST: "47.103.194.209"
           REMOTE_USER: "root"
           TARGET: "/root/test/"
-        
-  
